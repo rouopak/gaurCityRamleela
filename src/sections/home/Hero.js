@@ -13,10 +13,17 @@ if (typeof window !== "undefined") {
 }
 
 const Hero = () => {
+    // audio
+    const playClick = () => {
+        const audio = new Audio("/audio/jai-shree-ram.mp3");
+        audio.volume = 0.8;
+        audio.play();
+    };
     // Refs for GSAP
     const containerRef = useRef(null);
     const mainImgRef = useRef(null);
     const textRef = useRef(null);
+    const titleRef = useRef(null);
     const layer1Ref = useRef(null);
     const layer2Ref = useRef(null);
 
@@ -34,26 +41,41 @@ const Hero = () => {
 
         // 1. mainImg disappears
         tl.fromTo(mainImgRef.current,
-            { opacity: 1 },
-            { opacity: 0, duration: 1, ease: "power1.inOut" },
+            { autoAlpha: 1 },
+            { autoAlpha: 0, duration: 1, ease: "power1.inOut" },
             0
         );
 
-        // 2. text disappears (no motion)
-        tl.fromTo(textRef.current,
-            { opacity: 1 },
-            { opacity: 0, duration: 1, ease: "power1.inOut" },
+        // 2. secondary text elements fade out
+        const q = gsap.utils.selector(containerRef);
+        tl.fromTo(q(".subheading, .heading-line, .cta-btn"),
+            { autoAlpha: 1 },
+            { autoAlpha: 0, duration: 0.8, ease: "power1.inOut" },
             0
         );
 
-        // 3. layer2 scrolls up from the bottom (moves a bit higher/slower for parallax)
+        // 3. title image shrinks by 50% and goes up by 50px
+        const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+        tl.fromTo(titleRef.current,
+            { scale: 1, y: 0 },
+            {
+                scale: 0.5,
+                y: -50,
+                duration: 1,
+                ease: "power1.inOut",
+                transformOrigin: isMobile ? "center center" : "left center"
+            },
+            0
+        );
+
+        // 4. layer2 scrolls up from the bottom (moves a bit higher/slower for parallax)
         tl.fromTo(layer2Ref.current,
             { yPercent: 100 },
             { yPercent: 40, duration: 1, ease: "power1.inOut" },
             0
         );
 
-        // 4. layer1Top scrolls up from the bottom to cover most of the screen
+        // 5. layer1Top scrolls up from the bottom to cover most of the screen
         tl.fromTo(layer1Ref.current,
             { yPercent: 100 },
             { yPercent: 10, duration: 1, ease: "power1.inOut" },
@@ -108,7 +130,7 @@ const Hero = () => {
                 <div ref={textRef} className="text-left z-20 w-full md:w-[48%] flex flex-col items-center md:items-start origin-center pointer-events-auto text-center md:text-left mt-[-20px] md:mt-0">
 
                     {/* Subheading: KEEPING OUR HERITAGE ALIVE */}
-                    <div className="flex items-center justify-center md:justify-start gap-3 mb-4">
+                    <div className="subheading flex items-center justify-center md:justify-start gap-3 mb-4">
                         <div className="h-[1px] w-6 md:w-10 bg-[#98221b]"></div>
                         <span className="text-[#98221b] tracking-[0.25em] text-[10px] md:text-xs font-bold uppercase font-['var(--font-sans)']">
                             Shree RamLeela Seva Trust
@@ -118,18 +140,24 @@ const Hero = () => {
 
                     {/* Main Headings */}
                     <h1 className="leading-tight font-bold tracking-wide w-full mb-6" style={{ fontFamily: "var(--font-cinzel), serif" }}>
-                        <span className="text-[#3b271a] block text-3xl md:text-4xl lg:text-[42px] mb-1 md:mb-2 drop-shadow-sm whitespace-nowrap">Traditional Indian</span>
-                        <span className="text-[#3b271a] block text-3xl md:text-4xl lg:text-[42px] mb-2 md:mb-4 drop-shadow-sm whitespace-nowrap">Performance of</span>
-                        <span className="text-[#830404] block text-4xl md:text-6xl lg:text-[90px] drop-shadow-sm"> Ramayan</span>
+                        <span className="heading-line text-[#3b271a] block text-3xl md:text-4xl lg:text-[42px] mb-1 md:mb-2 drop-shadow-sm whitespace-nowrap">Traditional Indian</span>
+                        <span className="heading-line text-[#3b271a] block text-3xl md:text-4xl lg:text-[42px] mb-2 md:mb-4 drop-shadow-sm whitespace-nowrap">Performance of</span>
+                        <div ref={titleRef} className="relative w-full h-[80px] md:h-[100px] lg:h-[120px] mt-2 md:mt-4">
+                            <Image
+                                src="/images/ramayanText.png"
+                                fill
+                                className="object-contain object-center md:object-left"
+                                alt="Ramayan Title"
+                                style={{ filter: "drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.35))" }}
+                                priority
+                            />
+                        </div>
                     </h1>
 
                     {/* CTA Button */}
-                    <a href="/about" className="bg-[#811915] text-[#F5E9D2] px-6 py-3 md:px-8 md:py-3.5 rounded text-xs md:text-sm tracking-widest font-bold uppercase hover:bg-[#6b1411] transition-all duration-300 flex items-center gap-2 group shadow-lg">
-                        KNOW MORE
-                        <svg className="group-hover:translate-x-1 transition-transform" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M5 12h14M12 5l7 7-7 7" />
-                        </svg>
-                    </a>
+                    <button onClick={playClick} className="cta-btn bg-[#811915] text-[#F5E9D2] px-6 py-3 md:px-8 md:py-3.5 rounded text-xs md:text-sm tracking-widest font-bold uppercase hover:bg-[#6b1411] transition-all duration-300 flex items-center gap-2 group shadow-lg">
+                        Jai Shree Ram
+                    </button>
                 </div>
 
             </div>

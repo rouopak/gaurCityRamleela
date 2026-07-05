@@ -11,7 +11,7 @@ const landing = () => {
             </p>
             <div className="flex gap-4 justify-center">
                 <a href="/prevEvent" className="px-6 py-3 bg-[#4d1700] text-[#fffaf0] rounded-lg font-semibold shadow hover:bg-[#4d1700]/90 transition duration-300">
-                    Explore Events
+                    Email Us
                 </a>
             </div>
         </section>

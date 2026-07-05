@@ -4,11 +4,17 @@ import PreLoader from "@/components/preLoader";
 import Partners from "@/components/Partners";
 import Footer from "@/components/Footer";
 import NextTopLoader from "nextjs-toploader";
-import { Cinzel } from 'next/font/google';
+import { Cinzel, Yatra_One } from 'next/font/google';
 
 const cinzel = Cinzel({ 
     subsets: ['latin'],
     variable: '--font-cinzel',
+});
+
+const yatra = Yatra_One({
+    weight: '400',
+    subsets: ['devanagari'],
+    variable: '--font-yatra',
 });
 
 export const metadata = {
@@ -21,7 +27,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="en" className={`${cinzel.variable} scroll-smooth`}>
+        <html lang="en" className={`${cinzel.variable} ${yatra.variable} scroll-smooth`}>
             <body>
                 <NextTopLoader
                     color="#b55924"
