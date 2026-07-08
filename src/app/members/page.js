@@ -16,18 +16,18 @@ export default async function MembersPage() {
         <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-16">
-                    <h1 className="text-4xl md:text-5xl font-bold text-[#F5E9D2] mb-4" style={{ fontFamily: "var(--font-cinzel), serif" }}>
+                    <h1 className="text-4xl md:text-5xl font-bold text-[#4d1700] mb-4" style={{ fontFamily: "var(--font-cinzel), serif" }}>
                         Committee Members
                     </h1>
                     <div className="w-24 h-1 bg-[#b55924] mx-auto rounded-full mb-6"></div>
-                    <p className="text-[#F5E9D2]/70 max-w-2xl mx-auto">
+                    <p className="text-[#4d1700]/70 max-w-2xl mx-auto">
                         Meet the dedicated individuals who make the Gaur City RamLeela possible through their selfless service and devotion.
                     </p>
                 </div>
 
                 {members.length === 0 ? (
                     <div className="text-center py-20 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10">
-                        <p className="text-[#F5E9D2]/50 text-lg">No members have been added yet.</p>
+                        <p className="text-[#4d1700]/50 text-lg">No members have been added yet.</p>
                     </div>
                 ) : (
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
@@ -45,14 +45,14 @@ export default async function MembersPage() {
                                             className="object-cover transition-transform duration-500 group-hover:scale-110"
                                         />
                                     ) : (
-                                        <div className="absolute inset-0 flex items-center justify-center text-[#F5E9D2]/20 text-6xl font-bold">
+                                        <div className="absolute inset-0 flex items-center justify-center text-[#4d1700]/20 text-6xl font-bold">
                                             {member.name.charAt(0)}
                                         </div>
                                     )}
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                                     
                                     <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                                        <h3 className="text-xl font-bold text-[#F5E9D2] mb-1" style={{ fontFamily: "var(--font-cinzel), serif" }}>
+                                        <h3 className="text-xl font-bold text-[#4d1700] mb-1" style={{ fontFamily: "var(--font-cinzel), serif" }}>
                                             {member.name}
                                         </h3>
                                         <p className="text-[#b55924] font-medium text-sm tracking-wide uppercase">

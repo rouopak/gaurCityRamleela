@@ -16,18 +16,18 @@ export default async function PressReleasesPage() {
         <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-16">
-                    <h1 className="text-4xl md:text-5xl font-bold text-[#F5E9D2] mb-4" style={{ fontFamily: "var(--font-cinzel), serif" }}>
+                    <h1 className="text-4xl md:text-5xl font-bold text-[#4d1700] mb-4" style={{ fontFamily: "var(--font-cinzel), serif" }}>
                         Press Releases
                     </h1>
                     <div className="w-24 h-1 bg-[#b55924] mx-auto rounded-full mb-6"></div>
-                    <p className="text-[#F5E9D2]/70 max-w-2xl mx-auto">
+                    <p className="text-[#4d1700]/70 max-w-2xl mx-auto">
                         Stay updated with the latest news, media coverage, and official announcements from the Shree RamLeela Seva Trust.
                     </p>
                 </div>
 
                 {releases.length === 0 ? (
                     <div className="text-center py-20 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10">
-                        <p className="text-[#F5E9D2]/50 text-lg">No press releases have been published yet.</p>
+                        <p className="text-[#4d1700]/50 text-lg">No press releases have been published yet.</p>
                     </div>
                 ) : (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -65,17 +65,17 @@ export default async function PressReleasesPage() {
                                         </time>
                                     </div>
                                     
-                                    <h3 className="text-xl font-bold text-[#F5E9D2] mb-3 line-clamp-2" style={{ fontFamily: "var(--font-cinzel), serif" }}>
+                                    <h3 className="text-xl font-bold text-[#4d1700] mb-3 line-clamp-2" style={{ fontFamily: "var(--font-cinzel), serif" }}>
                                         {item.title}
                                     </h3>
                                     
                                     {item.content && (
-                                        <p className="text-[#F5E9D2]/70 text-sm line-clamp-4 leading-relaxed mb-6 flex-1">
+                                        <p className="text-[#4d1700]/70 text-sm line-clamp-4 leading-relaxed mb-6 flex-1">
                                             {item.content}
                                         </p>
                                     )}
                                     
-                                    <div className="mt-auto pt-4 border-t border-white/10 flex items-center text-[#b55924] text-sm font-semibold group-hover:text-[#F5E9D2] transition-colors">
+                                    <div className="mt-auto pt-4 border-t border-white/10 flex items-center text-[#b55924] text-sm font-semibold group-hover:text-[#4d1700] transition-colors">
                                         Read Full Release
                                         <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />

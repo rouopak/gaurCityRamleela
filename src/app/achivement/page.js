@@ -16,22 +16,22 @@ export default async function AchievementsPage() {
         <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
             {/* Background elements */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#b55924]/10 rounded-full blur-[120px] pointer-events-none"></div>
-            <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#F5E9D2]/5 rounded-full blur-[100px] pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#4d1700]/5 rounded-full blur-[100px] pointer-events-none"></div>
 
             <div className="max-w-4xl mx-auto relative z-10">
                 <div className="text-center mb-20">
-                    <h1 className="text-4xl md:text-5xl font-bold text-[#F5E9D2] mb-4" style={{ fontFamily: "var(--font-cinzel), serif" }}>
+                    <h1 className="text-4xl md:text-5xl font-bold text-[#4d1700] mb-4" style={{ fontFamily: "var(--font-cinzel), serif" }}>
                         Achievements & Milestones
                     </h1>
                     <div className="w-24 h-1 bg-[#b55924] mx-auto rounded-full mb-6"></div>
-                    <p className="text-[#F5E9D2]/70 max-w-2xl mx-auto">
+                    <p className="text-[#4d1700]/70 max-w-2xl mx-auto">
                         Celebrating the recognition and awards received for our continuous efforts in preserving and showcasing our cultural heritage.
                     </p>
                 </div>
 
                 {achievements.length === 0 ? (
                     <div className="text-center py-20 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10">
-                        <p className="text-[#F5E9D2]/50 text-lg">No achievements have been published yet.</p>
+                        <p className="text-[#4d1700]/50 text-lg">No achievements have been published yet.</p>
                     </div>
                 ) : (
                     <div className="relative">
@@ -60,7 +60,7 @@ export default async function AchievementsPage() {
                                                 </div>
                                             )}
                                             
-                                            <h3 className="text-2xl font-bold text-[#F5E9D2] mb-3" style={{ fontFamily: "var(--font-cinzel), serif" }}>
+                                            <h3 className="text-2xl font-bold text-[#4d1700] mb-3" style={{ fontFamily: "var(--font-cinzel), serif" }}>
                                                 {item.title}
                                             </h3>
                                             
@@ -76,7 +76,7 @@ export default async function AchievementsPage() {
                                             )}
                                             
                                             {item.description && (
-                                                <p className="text-[#F5E9D2]/70 leading-relaxed">
+                                                <p className="text-[#4d1700]/70 leading-relaxed">
                                                     {item.description}
                                                 </p>
                                             )}
